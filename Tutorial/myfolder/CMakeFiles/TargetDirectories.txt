@@ -1,4 +1,0 @@
-/home/alexa/PAOO/cmake/myfolder/CMakeFiles/edit_cache.dir
-/home/alexa/PAOO/cmake/myfolder/CMakeFiles/rebuild_cache.dir
-/home/alexa/PAOO/cmake/myfolder/CMakeFiles/salut.dir
-/home/alexa/PAOO/cmake/myfolder/CMakeFiles/lib.dir

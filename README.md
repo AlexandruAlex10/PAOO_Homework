@@ -10,4 +10,4 @@ Steps to run the programs:
      for example: cd ./VehicleShowroom
 4. Run command   cmake ./
 5. Run command   make
-6. Run command  ./<project name that, can be found in CMakeLists.txt>
+6. Run command  ./<project name, that can be found in CMakeLists.txt>

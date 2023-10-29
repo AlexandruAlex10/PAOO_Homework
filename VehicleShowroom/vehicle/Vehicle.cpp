@@ -6,22 +6,43 @@ using namespace std;
 
 // the methods for class Vehicle
 
-Vehicle::Vehicle() {
+Vehicle::Vehicle(const char* _brand, const char* _model, int _numberOfPlaces, int _height, int _width, int _length, int _trunkCapacity, int _weight, int _horsePower, int _maxSpeed, char _consumptionType, float _consumption) {
+    brand = new char[strlen(_brand) + 1];
+    strcpy(brand, _brand);
+    model = new char[strlen(_model) + 1];
+    strcpy(model, _model);
+    this->numberOfPlaces = _numberOfPlaces;
+    this->height = _height;
+    this->width = _width;
+    this->length = _length;
+    this->trunkCapacity = _trunkCapacity;
+    this->weight = _weight;
+    this->horsePower = _horsePower;
+    this->maxSpeed = _maxSpeed;
+    this->consumptionType = _consumptionType;
+    this->consumption = _consumption;
 }
 
-Vehicle::Vehicle(char* brand, char* model, int numberOfPlaces, int height, int width, int length, int trunkSpace, int weight, int horsePower, int maxSpeed, char consumptionType, float consumption) {
-    strncpy(this->brand, brand, 10);
-    strncpy(this->model, model, 20);
-    this->numberOfPlaces = numberOfPlaces;
-    this->height = height;
-    this->width = width;
-    this->length = length;
-    this->trunkSpace = trunkSpace;
-    this->weight = weight;
-    this->horsePower = horsePower;
-    this->maxSpeed = maxSpeed;
-    this->consumptionType = consumptionType;
-    this->consumption = consumption;
+Vehicle::Vehicle(const Vehicle& other) {
+    brand = new char[strlen(other.brand) + 1];
+    strcpy(brand, other.brand);
+    model = new char[strlen(other.model) + 1];
+    strcpy(model, other.model);
+    numberOfPlaces = other.numberOfPlaces;
+    height = other.height;
+    width = other.width;
+    length = other.length;
+    trunkCapacity = other.trunkCapacity;
+    weight = other.weight;
+    horsePower = other.horsePower;
+    maxSpeed = other.maxSpeed;
+    consumptionType = other.consumptionType;
+    consumption = other.consumption;
+}
+
+Vehicle::~Vehicle() {
+    delete[] brand;
+    delete[] model;
 }
 
 void Vehicle::print() const {
@@ -31,7 +52,7 @@ void Vehicle::print() const {
     cout << "Height (mm): " << height << endl;
     cout << "Width (mm): " << width << endl;
     cout << "Length (mm): " << length << endl;
-    cout << "Trunk Space (l): " << trunkSpace << endl;
+    cout << "Trunk Space (l): " << trunkCapacity << endl;
     cout << "Weight (kg): " << weight << endl;
     cout << "Horsepower (HP): " << horsePower << endl;
     cout << "Max Speed (km/h): " << maxSpeed << endl;

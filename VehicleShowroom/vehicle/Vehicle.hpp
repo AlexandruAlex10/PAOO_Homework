@@ -6,15 +6,15 @@ class Vehicle {
     // the attributes are private to take care of incapsulation principle
     private:
         // name
-        char brand[10];
-        char model[20];
+        char* brand; // pointer that points to a string
+        char* model; // pointer that points to a string
 
         // dimensions and weight
         int numberOfPlaces;
         int length; // in mm
         int width; // in mm
         int height; // in mm
-        int trunkSpace; // in l
+        int trunkCapacity; // in l
         int weight; // in kg
 
         // performance
@@ -23,14 +23,19 @@ class Vehicle {
 
         // Consumption
         char consumptionType; //diesel or petrol
-        float consumption; // how much diesel or pretrol in liters is consumed in 100 km
+        float consumption; // diesel or petrol consumption in liters per 100 km
     
     public:
-        // the default constructor creates an empty instance for the class Vehicle
-        Vehicle();
 
-        // this constructor creates an instance for the class Vehicle
-        Vehicle(char*, char*, int, int, int, int, int, int, int, int, char, float);
+        // the constructor creates an instance for the class Vehicle
+        Vehicle(const char*, const char*, int, int, int, int, int, int, int, int, char, float);
+
+        // the copy constructor pretty much duplicates the instance given as parameter
+
+        Vehicle(const Vehicle&);
+
+        // the destructor frees up memory to prevent memory leaks
+        ~Vehicle();
 
         // prints the given instance of a vehicle
         void print() const;

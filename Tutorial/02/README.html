@@ -1,0 +1,112 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Hello - Tutorial for C++ projects with CMake.md</title><style></style></head><body id="preview">
+<h1 class="code-line" data-line-start=1 data-line-end=2 ><a id="Hello__Tutorial_for_C_projects_with_CMake_1"></a>Hello - Tutorial for C++ projects with CMake</h1>
+<p class="has-line-data" data-line-start="3" data-line-end="4">The purpose of the Hello solution is to provide a sample regarding how to build C++ projects with the use of the CMake build system.</p>
+<h2 class="code-line" data-line-start=5 data-line-end=6 ><a id="Hello_version_02_features_5"></a>Hello, version 0.2 features</h2>
+<ul>
+<li class="has-line-data" data-line-start="7" data-line-end="8">Print the application name, version and copyright information</li>
+<li class="has-line-data" data-line-start="8" data-line-end="9">Print “Hello world!”</li>
+<li class="has-line-data" data-line-start="9" data-line-end="10">Print the current date-time</li>
+<li class="has-line-data" data-line-start="10" data-line-end="12">Print “Good bye world!”</li>
+</ul>
+<h2 class="code-line" data-line-start=12 data-line-end=13 ><a id="Hello_version_02_source_files_12"></a>Hello, version 0.2 source files</h2>
+<ul>
+<li class="has-line-data" data-line-start="14" data-line-end="15">src/main.cpp</li>
+<li class="has-line-data" data-line-start="15" data-line-end="16">src/hello.cpp</li>
+<li class="has-line-data" data-line-start="16" data-line-end="17">inc/hello/hello_config.hpp</li>
+<li class="has-line-data" data-line-start="17" data-line-end="19">inc/hello/hello.hpp</li>
+</ul>
+<h2 class="code-line" data-line-start=19 data-line-end=20 ><a id="Hello_version_02_architecture_19"></a>Hello, version 0.2 architecture</h2>
+<ul>
+<li class="has-line-data" data-line-start="21" data-line-end="25">
+<p class="has-line-data" data-line-start="21" data-line-end="22">An executable:</p>
+<ul>
+<li class="has-line-data" data-line-start="22" data-line-end="23">Name: hello (or hello.exe on Windows)</li>
+<li class="has-line-data" data-line-start="23" data-line-end="25">Sources: main.cpp, hello.cpp, hello.hpp, hello_config.hpp</li>
+</ul>
+</li>
+<li class="has-line-data" data-line-start="25" data-line-end="28">
+<p class="has-line-data" data-line-start="25" data-line-end="26">Hints:</p>
+<ul>
+<li class="has-line-data" data-line-start="26" data-line-end="28">All the includes are using the <em>hello</em> prefix (ex: #include &lt;hello/hello.hpp&gt; -&gt; to be considered by specifying the include search path in CMake</li>
+</ul>
+</li>
+</ul>
+<h2 class="code-line" data-line-start=28 data-line-end=29 ><a id="Programming_language_28"></a>Programming language</h2>
+<ul>
+<li class="has-line-data" data-line-start="30" data-line-end="32">C++14</li>
+</ul>
+<h2 class="code-line" data-line-start=32 data-line-end=33 ><a id="The_CMake_solution_32"></a>The CMake solution</h2>
+<ul>
+<li class="has-line-data" data-line-start="34" data-line-end="44">
+<p class="has-line-data" data-line-start="34" data-line-end="35">Configure a solution building an executable:</p>
+<ul>
+<li class="has-line-data" data-line-start="35" data-line-end="36">Solution name: <strong>hello</strong></li>
+<li class="has-line-data" data-line-start="36" data-line-end="37">Project name: <strong>hello</strong></li>
+<li class="has-line-data" data-line-start="37" data-line-end="38">Executable name: <strong>hello</strong></li>
+<li class="has-line-data" data-line-start="38" data-line-end="44">Source files:
+<ul>
+<li class="has-line-data" data-line-start="39" data-line-end="40">src/main.cpp</li>
+<li class="has-line-data" data-line-start="40" data-line-end="41">src/hello.cpp</li>
+<li class="has-line-data" data-line-start="41" data-line-end="42">inc/hello/hello_config.hpp</li>
+<li class="has-line-data" data-line-start="42" data-line-end="44">inc/hello/hello.hpp</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="has-line-data" data-line-start="44" data-line-end="46">
+<p class="has-line-data" data-line-start="44" data-line-end="45">Specify the minimal CMake version (example 3.0)</p>
+</li>
+<li class="has-line-data" data-line-start="46" data-line-end="48">
+<p class="has-line-data" data-line-start="46" data-line-end="47">Specify the search path for header files</p>
+</li>
+<li class="has-line-data" data-line-start="48" data-line-end="50">
+<p class="has-line-data" data-line-start="48" data-line-end="49">Specify the requested C++ standard</p>
+</li>
+</ul>
+<h1 class="code-line" data-line-start=50 data-line-end=51 ><a id="Building_the_solution_50"></a>Building the solution</h1>
+<ul>
+<li class="has-line-data" data-line-start="52" data-line-end="54">
+<p class="has-line-data" data-line-start="52" data-line-end="53">Build folder: <strong>build</strong></p>
+</li>
+<li class="has-line-data" data-line-start="54" data-line-end="63">
+<p class="has-line-data" data-line-start="54" data-line-end="55">CMake generators (use one of them):</p>
+<ul>
+<li class="has-line-data" data-line-start="55" data-line-end="56">Unix makefiles</li>
+<li class="has-line-data" data-line-start="56" data-line-end="57">Ninja</li>
+<li class="has-line-data" data-line-start="57" data-line-end="58">Kate with Unix makefiles</li>
+<li class="has-line-data" data-line-start="58" data-line-end="59">Kate with Ninja</li>
+<li class="has-line-data" data-line-start="59" data-line-end="60">Codeblocks with Unix makefiles</li>
+<li class="has-line-data" data-line-start="60" data-line-end="61">Codeblocks with Ninja</li>
+<li class="has-line-data" data-line-start="61" data-line-end="63">Microsoft Visual Studio 2015 (or later)</li>
+</ul>
+</li>
+<li class="has-line-data" data-line-start="63" data-line-end="66">
+<p class="has-line-data" data-line-start="63" data-line-end="64">Build configurations:</p>
+<ul>
+<li class="has-line-data" data-line-start="64" data-line-end="66">Debug/Release</li>
+</ul>
+</li>
+</ul>
+<h2 class="code-line" data-line-start=66 data-line-end=67 ><a id="Running_the_executable_66"></a>Running the executable</h2>
+<ul>
+<li class="has-line-data" data-line-start="68" data-line-end="70">build/hello</li>
+</ul>
+<h2 class="code-line" data-line-start=70 data-line-end=71 ><a id="CMake_commands_and_variables_to_use_70"></a>CMake commands and variables to use</h2>
+<ul>
+<li class="has-line-data" data-line-start="72" data-line-end="73">add_executable</li>
+<li class="has-line-data" data-line-start="73" data-line-end="74">cmake_cxx_flags, cmake_cxx_standard, cmake_cxx_standard_required, cmake_cxx_extensions, cmake_compiler_is_gnucxx</li>
+<li class="has-line-data" data-line-start="74" data-line-end="75">cmake_minimum_required</li>
+<li class="has-line-data" data-line-start="75" data-line-end="76">cmake_version</li>
+<li class="has-line-data" data-line-start="76" data-line-end="77">greater</li>
+<li class="has-line-data" data-line-start="77" data-line-end="78">if/else/endif</li>
+<li class="has-line-data" data-line-start="78" data-line-end="79">on/off</li>
+<li class="has-line-data" data-line-start="79" data-line-end="80">project</li>
+<li class="has-line-data" data-line-start="80" data-line-end="81">set</li>
+<li class="has-line-data" data-line-start="81" data-line-end="82">
+<hr>
+</li>
+<li class="has-line-data" data-line-start="82" data-line-end="83">include_directories</li>
+<li class="has-line-data" data-line-start="83" data-line-end="84">project_name</li>
+</ul>
+
+</body></html>

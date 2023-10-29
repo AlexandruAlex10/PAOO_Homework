@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/alexa/PAOO/cmake/myfolder/inc/hello.hpp
+string
+-
+
+/home/alexa/PAOO/cmake/myfolder/src/hello.cpp
+../inc/hello.hpp
+/home/alexa/PAOO/cmake/myfolder/inc/hello.hpp
+chrono
+-
+ctime
+-
+iostream
+-
+

@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/salut.dir/src/main.cpp.o -o salut  liblib.a 

@@ -31,8 +31,11 @@ class Vehicle {
         Vehicle(const char*, const char*, int, int, int, int, int, int, int, int, char, float);
 
         // the copy constructor pretty much duplicates the instance given as parameter
-
         Vehicle(const Vehicle&);
+
+        /* overloading '=' operator to do the same thing as the copy constructor (create deep copy)
+        instead of a shallow copy */
+        //Vehicle operator=(const Vehicle&);
 
         // the destructor frees up memory to prevent memory leaks
         ~Vehicle();

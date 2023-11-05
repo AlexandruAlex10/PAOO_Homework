@@ -1,18 +1,18 @@
 #include <iostream>
-#include "./vehicle/Vehicle.hpp"
+#include "Vehicle.hpp"
 
 using namespace std;
 
 int main(){
     // call constructor
-    Vehicle v1("Volvo", "S60", 5, 4778, 1850, 1426, 391, 2039, 455, 180, 'P', 6.2);
+    MyVehicleShowroom::Vehicle v1("Volvo", "S60", 5, 4778, 1850, 1426, 391, 2039, 455, 180, 'P', 6.2);
 
     cout<<"V1 AFTER CALLING CONSTRUCTOR"<<endl;
     v1.print();
     cout<<endl;
 
     // call copy constructor
-    Vehicle v2 = v1;
+    MyVehicleShowroom::Vehicle v2 = v1;
     cout<<"V2 AFTER CALLING COPY CONSTRUCTOR"<<endl;
     v2.print();
     cout<<endl;
@@ -30,7 +30,7 @@ int main(){
     // this instance remains untouched from the effects of the destructor, that means the refferences between v1 and v2 are not the same
     cout<<endl;
 
-    Vehicle v3("Volvo", "S90", 5, 4969, 1879, 1436, 431, 2119, 455, 180, 'P', 6.5);
+    MyVehicleShowroom::Vehicle v3("Volvo", "S90", 5, 4969, 1879, 1436, 431, 2119, 455, 180, 'P', 6.5);
     cout<<"V3 AFTER CALLING CONSTRUCTOR"<<endl;
     v3.print();
     cout<<endl;
@@ -53,7 +53,7 @@ int main(){
     cout<<endl;
 
     // call move constructor
-    Vehicle v2_moved(std::move(v2));
+    MyVehicleShowroom::Vehicle v2_moved(std::move(v2));
 
     cout<<"V2_MOVED AFTER CALLING MOVE CONSTRUCTOR UPON V2"<<endl;
     v2_moved.print();

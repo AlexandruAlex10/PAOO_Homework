@@ -1,49 +1,49 @@
-#pragma once //include this header only once
-#include <string.h>
+namespace MyVehicleShowroom {
 
-// Vehicle class represents a auto vehicle with all its specifications
+    // Vehicle class represents an auto vehicle with all its specifications
 
-class Vehicle {
-    // the attributes are private to take care of incapsulation principle
-    private:
-        // name
-        char* brand; // pointer that points to a string
-        char* model; // pointer that points to a string
+    class Vehicle {
+        // the attributes are private to take care of incapsulation principle
+        private:
+            // name
+            char* brand; // pointer that points to a string
+            char* model; // pointer that points to a string
 
-        // dimensions and weight
-        int numberOfPlaces;
-        int length; // in mm
-        int width; // in mm
-        int height; // in mm
-        int trunkCapacity; // in l
-        int weight; // in kg
+            // dimensions and weight
+            int numberOfPlaces;
+            int length; // in mm
+            int width; // in mm
+            int height; // in mm
+            int trunkCapacity; // in l
+            int weight; // in kg
 
-        // performancep
-        int horsePower; // in HP
-        int maxSpeed; // in km/h
+            // performancep
+            int horsePower; // in HP
+            int maxSpeed; // in km/h
 
-        // Consumption
-        char consumptionType; //diesel or petrol
-        float consumption; // diesel or petrol consumption in liters per 100 km
-    
-    public:
+            // Consumption
+            char consumptionType; //diesel or petrol
+            float consumption; // diesel or petrol consumption in liters per 100 km
+        
+        public:
+            // the constructor creates an instance for the class Vehicle
+            Vehicle(const char*, const char*, int, int, int, int, int, int, int, int, char, float);
 
-        // the constructor creates an instance for the class Vehicle
-        Vehicle(const char*, const char*, int, int, int, int, int, int, int, int, char, float);
+            // the copy constructor pretty much duplicates the instance given as parameter
+            Vehicle(const Vehicle&);
 
-        // the copy constructor pretty much duplicates the instance given as parameter
-        Vehicle(const Vehicle&);
+            // the move constructor moves the information from an object to another
+            Vehicle(Vehicle&&);
 
-        // the move constructor moves the information from an object to another
-        Vehicle(Vehicle&&);
+            /* overloading '=' operator to do the same thing as the copy constructor (create deep copy)
+            instead of a shallow copy */
+            Vehicle& operator=(const Vehicle& other);
 
-        /* overloading '=' operator to do the same thing as the copy constructor (create deep copy)
-        instead of a shallow copy */
-        Vehicle& operator=(const Vehicle& other);
+            // the destructor frees up memory to prevent memory leaks
+            ~Vehicle();
 
-        // the destructor frees up memory to prevent memory leaks
-        ~Vehicle();
+            // prints the given instance of a vehicle
+            void print() const;
+    };
+}
 
-        // prints the given instance of a vehicle
-        void print() const;
-};

@@ -6,7 +6,7 @@ using namespace std;
 
 // the methods for class Vehicle
 
-Vehicle::Vehicle(const char* _brand, const char* _model, int _numberOfPlaces, int _height, int _width, int _length, int _trunkCapacity, int _weight, int _horsePower, int _maxSpeed, char _consumptionType, float _consumption) {
+MyVehicleShowroom::Vehicle::Vehicle(const char* _brand, const char* _model, int _numberOfPlaces, int _height, int _width, int _length, int _trunkCapacity, int _weight, int _horsePower, int _maxSpeed, char _consumptionType, float _consumption) {
     brand = new char[strlen(_brand) + 1];
     strcpy(brand, _brand);
     model = new char[strlen(_model) + 1];
@@ -23,7 +23,7 @@ Vehicle::Vehicle(const char* _brand, const char* _model, int _numberOfPlaces, in
     this->consumption = _consumption;
 }
 
-Vehicle::Vehicle(const Vehicle& other) {
+MyVehicleShowroom::Vehicle::Vehicle(const Vehicle& other) {
     brand = new char[strlen(other.brand) + 1];
     strcpy(brand, other.brand);
     model = new char[strlen(other.model) + 1];
@@ -40,7 +40,7 @@ Vehicle::Vehicle(const Vehicle& other) {
     consumption = other.consumption;
 }
 
-Vehicle::Vehicle(Vehicle&& other) {
+MyVehicleShowroom::Vehicle::Vehicle(Vehicle&& other) {
     brand = other.brand;
     model = other.model;
     numberOfPlaces = other.numberOfPlaces;
@@ -58,7 +58,7 @@ Vehicle::Vehicle(Vehicle&& other) {
     other.model = NULL;
 }
 
-Vehicle& Vehicle::operator=(const Vehicle& other) {
+MyVehicleShowroom::Vehicle& MyVehicleShowroom::Vehicle::operator=(const Vehicle& other) {
     // first of all, deallocate all attributes that have been previously allocated dinamically
     delete[] brand;
     delete[] model;
@@ -85,13 +85,13 @@ Vehicle& Vehicle::operator=(const Vehicle& other) {
     return *this;
 }
 
-
-Vehicle::~Vehicle() {
+MyVehicleShowroom::Vehicle::~Vehicle()
+{
     delete[] brand;
     delete[] model;
 }
 
-void Vehicle::print() const {
+void MyVehicleShowroom::Vehicle::print() const {
     cout << "Brand: " << brand << endl;
     cout << "Model: " << model << endl;
     cout << "Number of places: " << numberOfPlaces << endl;

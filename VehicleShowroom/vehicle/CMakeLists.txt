@@ -1,1 +1,1 @@
-add_library(vehicle Vehicle.cpp)
+add_library(vehicle Vehicle.hpp Vehicle.cpp)

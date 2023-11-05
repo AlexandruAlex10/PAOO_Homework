@@ -40,6 +40,35 @@ Vehicle::Vehicle(const Vehicle& other) {
     consumption = other.consumption;
 }
 
+
+Vehicle& Vehicle::operator=(const Vehicle& other) {
+    // first of all, deallocate all attributes that have been previously allocated dinamically
+    delete[] brand;
+    delete[] model;
+
+    // allocate a different zone of memory for attributes that have been allocated dinamically
+    brand = new char[strlen(other.brand) + 1];
+    strcpy(brand, other.brand);
+    model = new char[strlen(other.model) + 1];
+    strcpy(model, other.model);
+
+    // copy other attributes
+    numberOfPlaces = other.numberOfPlaces;
+    height = other.height;
+    width = other.width;
+    length = other.length;
+    trunkCapacity = other.trunkCapacity;
+    weight = other.weight;
+    horsePower = other.horsePower;
+    maxSpeed = other.maxSpeed;
+    consumptionType = other.consumptionType;
+    consumption = other.consumption;
+
+    // return the object that was built, using 'this
+    return *this;
+}
+
+
 Vehicle::~Vehicle() {
     delete[] brand;
     delete[] model;

@@ -1,4 +1,5 @@
 #pragma once //include this header only once
+#include <string.h>
 
 // Vehicle class represents a auto vehicle with all its specifications
 
@@ -17,7 +18,7 @@ class Vehicle {
         int trunkCapacity; // in l
         int weight; // in kg
 
-        // performance
+        // performancep
         int horsePower; // in HP
         int maxSpeed; // in km/h
 
@@ -35,7 +36,7 @@ class Vehicle {
 
         /* overloading '=' operator to do the same thing as the copy constructor (create deep copy)
         instead of a shallow copy */
-        //Vehicle operator=(const Vehicle&);
+        Vehicle& operator=(const Vehicle& other);
 
         // the destructor frees up memory to prevent memory leaks
         ~Vehicle();

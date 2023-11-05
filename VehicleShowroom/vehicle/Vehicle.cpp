@@ -40,6 +40,23 @@ Vehicle::Vehicle(const Vehicle& other) {
     consumption = other.consumption;
 }
 
+Vehicle::Vehicle(Vehicle&& other) {
+    brand = other.brand;
+    model = other.model;
+    numberOfPlaces = other.numberOfPlaces;
+    length = other.length;
+    width = other.width;
+    height = other.height;
+    trunkCapacity = other.trunkCapacity;
+    weight = other.weight;
+    horsePower = other.horsePower;
+    maxSpeed = other.maxSpeed;
+    consumptionType = other.consumptionType;
+    consumption = other.consumption;
+
+    other.brand = NULL;
+    other.model = NULL;
+}
 
 Vehicle& Vehicle::operator=(const Vehicle& other) {
     // first of all, deallocate all attributes that have been previously allocated dinamically

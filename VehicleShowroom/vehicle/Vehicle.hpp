@@ -34,6 +34,9 @@ class Vehicle {
         // the copy constructor pretty much duplicates the instance given as parameter
         Vehicle(const Vehicle&);
 
+        // the move constructor moves the information from an object to another
+        Vehicle(Vehicle&&);
+
         /* overloading '=' operator to do the same thing as the copy constructor (create deep copy)
         instead of a shallow copy */
         Vehicle& operator=(const Vehicle& other);

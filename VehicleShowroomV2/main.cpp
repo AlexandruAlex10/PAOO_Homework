@@ -1,23 +1,30 @@
 #include <iostream>
 #include "Vehicle.hpp"
+#include <vector>
 
 using namespace std;
 
 int main(){
+
+    std::vector<MyVehicle::Vehicle*> vehicles;
+
     MyVehicle::Car c1("Volvo", "S60", 5, 4778, 1850, 1426, 391, 2039, 455, 180, 'P', 6.2);
+    MyVehicle::Car c3("Volvo", "S90", 5, 4969, 1879, 1436, 431, 2119, 455, 180, 'P', 6.5); 
+    MyVehicle::Truck t1("Volvo", "VNX", 2, 3689, 1646, 3850, 4781, 220, 120, 'D', 12.2);
+    vehicles.push_back(&c1);
+    vehicles.push_back(&c3);
+    vehicles.push_back(&t1);
 
     cout << "C1 AFTER CALLING CONSTRUCTOR" << endl;
     c1.print();
     cout << endl;
-
-    MyVehicle::Truck t1("Volvo", "VNX", 2, 3689, 1646, 3850, 4781, 220, 120, 'D', 12.2);
 
     cout << "T1 AFTER CALLING CONSTRUCTOR" << endl;
     t1.print();
     cout << endl;
 
     MyVehicle::Car c2 = c1;
-
+    vehicles.push_back(&c2);
     cout << "C2 AFTER CALLING COPY CONSTRUCTOR" << endl;
     c2.print();
     cout << endl;
@@ -31,8 +38,6 @@ int main(){
     c2.print();
     cout << endl;
     // this instance remains untouched from the effects of the destructor, that means the refferences between v1 and v2 are not the same
-
-    MyVehicle::Car c3("Volvo", "S90", 5, 4969, 1879, 1436, 431, 2119, 455, 180, 'P', 6.5);
     
     cout << "C3 AFTER CALLING CONSTRUCTOR" << endl;
     c3.print();
@@ -57,9 +62,12 @@ int main(){
     cout << endl;
 
     MyVehicle::Car c2_moved(std::move(c2));
-
+    vehicles.push_back(&c2_moved);
     cout<<"C2_MOVED AFTER CALLING MOVE CONSTRUCTOR UPON C2" << endl;
     c2_moved.print();
+    cout << endl;
+    
+    cout << "Until now, you have created " << vehicles.size() << " objects." << endl;
     cout << endl;
 
     cout << "C2 AFTER CALLING MOVE CONSTRUCTOR" << endl;

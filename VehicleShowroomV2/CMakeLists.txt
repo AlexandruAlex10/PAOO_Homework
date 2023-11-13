@@ -2,13 +2,16 @@ cmake_minimum_required(VERSION 3.0)
 
 project(VehicleShowroom)
 
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_STANDARD_REQUIRED True)
+add_executable(VehicleShowroom main.cpp)
 
 add_subdirectory(vehicle)
 add_subdirectory(car)
 add_subdirectory(truck)
+add_subdirectory(vehicletemplate)
 
-add_executable(VehicleShowroom main.cpp)
-
-target_link_libraries(VehicleShowroom PUBLIC vehicle car truck)
+target_link_libraries(VehicleShowroom
+    PRIVATE Vehicle
+    PRIVATE Car
+    PRIVATE Truck
+    PRIVATE VehicleTemplate
+)

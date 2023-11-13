@@ -1,6 +1,8 @@
 #include <iostream>
-#include "Vehicle.hpp"
+#include "vehicle/Vehicle.hpp"
+#include "vehicletemplate/VehicleTemplate.cpp"
 #include <vector>
+#include <string.h>
 
 using namespace std;
 
@@ -90,8 +92,39 @@ int main(){
             vehicles.push_back(&c1);
             vehicles.push_back(&c3);
 
-            cout << "Until now, you have created " << vehicles.size() << " objects." << endl;
+            cout << "UNTIL NOW, YOU HAVE CREATED " << vehicles.size() << " 2 CAR OBJECTS." << endl;
             cout << endl;
+
+            VehicleTemplate<string> vt1("Car", "Volvo", "S60");
+            VehicleTemplate<string> vt2("Truck", "Volvo", "VNX");
+            VehicleTemplate<string> vt3("Car", "Volvo", "S60");
+
+            cout << "VT1 AFTER CALLING CONSTRUCTOR" << endl;
+            vt1.print();
+            cout << endl;
+            
+            cout << "VT2 AFTER CALLING CONSTRUCTOR" << endl;
+            vt2.print();
+            cout << endl;
+
+            cout << "VT3 AFTER CALLING CONSTRUCTOR" << endl;
+            vt3.print();
+            cout << endl;
+            
+            // compare the vehicles and print the result
+            bool areEqual = compareVehicles(vt1, vt2);
+            if (areEqual) {
+                cout << endl << "The vehicles are the same." << endl;
+            } else {
+                cout << endl <<"The vehicles are not the same." << endl;
+            }
+
+            areEqual = compareVehicles(vt1, vt3);
+            if (areEqual) {
+                cout << endl << "The vehicles are the same." << endl;
+            } else {
+                cout << endl <<"The vehicles are not the same." << endl;
+            }
         }
     }
 

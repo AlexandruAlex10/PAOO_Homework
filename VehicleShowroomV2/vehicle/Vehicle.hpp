@@ -1,7 +1,7 @@
 namespace MyVehicle {
-
+    
     // Vehicle class represents an auto vehicle with all its specifications (abstract class)
-
+    
     class Vehicle {
     protected:
             // type
@@ -43,6 +43,8 @@ namespace MyVehicle {
         virtual void print() const = 0;
     };
 
+    
+    
     // Car class represents a car with all its specifications (inherits class Vehicle)
 
     class Car : public Vehicle{
@@ -70,6 +72,8 @@ namespace MyVehicle {
             void print() const;
     };
 
+    
+    
     // Truck class represents a truck with all its specifications (inherits class Vehicle)
 
     class Truck : public Vehicle{
@@ -93,4 +97,5 @@ namespace MyVehicle {
             // prints the given instance of a truck
             void print() const;
     };
+
 }
